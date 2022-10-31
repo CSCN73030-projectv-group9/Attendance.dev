@@ -1,16 +1,15 @@
-#!/usr/bin/env bash
+gh auth status
 
-git-credential-manager-core configure
-git config pull.ff only
-git config credential.credentialStore plaintext
+status=$?
 
-./utility-scripts/configure-git.py
+if [[ $status -ne 0 ]]
+then
+  echo "gh is not authenticated!"
+  gh auth login
+fi
 
+pip install -r requirements.txt
 
-printf "\n\n\n\n\n\n\n\n\n\n"
-echo "################################"
-echo "#                              #"
-echo "#            ALERT             #"
-echo "#                              #"
-echo "################################"
-git push --dry-run
+status=$?
+
+exit $status
