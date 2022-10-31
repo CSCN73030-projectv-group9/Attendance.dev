@@ -1,3 +1,5 @@
+pip install -r requirements.txt
+
 gh auth status
 
 status=$?
@@ -8,7 +10,7 @@ then
   gh auth login
 fi
 
-pip install -r requirements.txt
+
 
 status=$?
 
