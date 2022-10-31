@@ -9,9 +9,3 @@ then
   echo "gh is not authenticated!"
   gh auth login
 fi
-
-
-
-status=$?
-
-exit $status
